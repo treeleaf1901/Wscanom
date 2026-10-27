@@ -1,0 +1,526 @@
+/* ============================================================
+   WScanom — admin UI
+   Palet: biru inti (identitas/scan), hijau (aman/aktif), kuning (perhatian/
+   manual), merah (darurat/bahaya), ungu (privasi), teal (kesehatan).
+   Struktur: setiap bagian halaman adalah ".wscanom-card" dengan header
+   ikon+judul+subjudul, supaya halaman terbaca sebagai satu dashboard
+   terstruktur, bukan tumpukan form berurutan.
+   ============================================================ */
+
+.wscanom-wrap {
+	max-width: 960px;
+}
+
+/* --- Masthead --- */
+
+.wscanom-masthead {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+	margin: 16px 0 20px;
+}
+
+.wscanom-masthead > .dashicons {
+	font-size: 36px;
+	width: 36px;
+	height: 36px;
+	color: #2271b1;
+	flex-shrink: 0;
+}
+
+.wscanom-masthead h1 {
+	display: block;
+	margin: 0 0 2px;
+	padding: 0;
+	font-size: 23px;
+	font-weight: 600;
+	color: #1d2327;
+}
+
+.wscanom-masthead p {
+	margin: 0;
+	color: #50575e;
+	max-width: 620px;
+}
+
+/* --- Status overview --- */
+
+.wscanom-overview {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: space-between;
+	gap: 16px;
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 16px 20px;
+	margin: 0 0 20px;
+}
+
+.wscanom-overview--good {
+	border-left: 4px solid #00a32a;
+}
+
+.wscanom-overview--warn {
+	border-left: 4px solid #dba617;
+}
+
+.wscanom-overview-main {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+}
+
+.wscanom-overview-main > .dashicons {
+	font-size: 28px;
+	width: 28px;
+	height: 28px;
+	margin-top: 2px;
+}
+
+.wscanom-overview--good .dashicons {
+	color: #00a32a;
+}
+
+.wscanom-overview--warn .dashicons {
+	color: #dba617;
+}
+
+.wscanom-overview-main strong {
+	display: block;
+	font-size: 15px;
+	color: #1d2327;
+}
+
+.wscanom-overview-sub {
+	display: block;
+	color: #50575e;
+	font-size: 13px;
+	margin-top: 2px;
+	max-width: 480px;
+}
+
+.wscanom-overview-chips {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px;
+}
+
+.wscanom-chip {
+	display: inline-flex;
+	align-items: center;
+	gap: 4px;
+	font-size: 12px;
+	font-weight: 600;
+	padding: 4px 10px;
+	border-radius: 999px;
+	white-space: nowrap;
+}
+
+.wscanom-chip--on {
+	background: #edfaef;
+	color: #00763c;
+}
+
+.wscanom-chip--off {
+	background: #fdf0d5;
+	color: #996800;
+}
+
+/* --- Cards --- */
+
+.wscanom-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 22px 24px;
+	margin: 0 0 20px;
+}
+
+.wscanom-card-head {
+	display: flex;
+	align-items: flex-start;
+	gap: 12px;
+	margin-bottom: 16px;
+}
+
+.wscanom-card-head > .dashicons {
+	font-size: 22px;
+	width: 22px;
+	height: 22px;
+	margin-top: 2px;
+	color: #2271b1;
+	flex-shrink: 0;
+}
+
+.wscanom-card-head h2 {
+	margin: 0 0 2px;
+	padding: 0;
+	font-size: 16px;
+	line-height: 1.4;
+}
+
+.wscanom-card-subtitle {
+	margin: 0;
+	color: #50575e;
+	font-size: 13px;
+	max-width: 620px;
+}
+
+/* accent + icon color per kategori kartu */
+.wscanom-card--scan { border-left: 4px solid #2271b1; }
+.wscanom-card--settings { border-left: 4px solid #00a32a; }
+.wscanom-card--settings .wscanom-card-head .dashicons { color: #00a32a; }
+.wscanom-card--twofactor { border-left: 4px solid #8c5ae2; }
+.wscanom-card--twofactor .wscanom-card-head .dashicons { color: #8c5ae2; }
+.wscanom-card--advanced { border-left: 4px solid #dba617; }
+.wscanom-card--advanced .wscanom-card-head .dashicons { color: #dba617; }
+.wscanom-card--emergency { border-left: 4px solid #d63638; }
+.wscanom-card--emergency .wscanom-card-head .dashicons { color: #d63638; }
+.wscanom-card--health { border-left: 4px solid #00879a; }
+.wscanom-card--health .wscanom-card-head .dashicons { color: #00879a; }
+.wscanom-card--log { border-left: 4px solid #787c82; }
+.wscanom-card--log .wscanom-card-head .dashicons { color: #787c82; }
+.wscanom-card--quarantine { border-left: 4px solid #d63638; }
+.wscanom-card--quarantine .wscanom-card-head .dashicons { color: #d63638; }
+
+/* --- Settings rows (toggle switches) --- */
+
+.wscanom-settings-form {
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+}
+
+.wscanom-setting-row {
+	display: flex;
+	gap: 16px;
+	padding: 16px 0;
+	border-top: 1px solid #f0f0f1;
+}
+
+.wscanom-settings-form .wscanom-setting-row:first-of-type {
+	border-top: none;
+	padding-top: 0;
+}
+
+.wscanom-setting-copy {
+	flex: 1;
+}
+
+.wscanom-setting-copy strong {
+	display: block;
+	font-size: 14px;
+	color: #1d2327;
+	margin-bottom: 3px;
+}
+
+.wscanom-setting-copy p {
+	margin: 0 0 8px;
+	color: #50575e;
+	font-size: 13px;
+	max-width: 640px;
+}
+
+.wscanom-inline-number {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+	font-size: 13px;
+	margin: 4px 16px 0 0;
+}
+
+.wscanom-inline-number input[type="number"] {
+	width: 4.5em;
+}
+
+.wscanom-hint {
+	color: #8c8f94;
+	font-size: 12px;
+}
+
+.wscanom-form-submit {
+	margin-top: 18px;
+}
+
+/* --- Toggle switch control --- */
+
+.wscanom-switch {
+	position: relative;
+	display: inline-block;
+	width: 40px;
+	height: 22px;
+	flex-shrink: 0;
+	margin-top: 2px;
+}
+
+.wscanom-switch input {
+	opacity: 0;
+	width: 0;
+	height: 0;
+	position: absolute;
+}
+
+.wscanom-switch-track {
+	position: absolute;
+	inset: 0;
+	background: #c3c4c7;
+	border-radius: 999px;
+	transition: background 0.15s ease;
+	cursor: pointer;
+}
+
+.wscanom-switch-track::before {
+	content: "";
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	left: 3px;
+	top: 3px;
+	background: #fff;
+	border-radius: 50%;
+	transition: transform 0.15s ease;
+	box-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+}
+
+.wscanom-switch input:checked + .wscanom-switch-track {
+	background: #00a32a;
+}
+
+.wscanom-switch input:checked + .wscanom-switch-track::before {
+	transform: translateX(18px);
+}
+
+.wscanom-switch input:focus-visible + .wscanom-switch-track {
+	outline: 2px solid #2271b1;
+	outline-offset: 2px;
+}
+
+/* --- Status strip (ringkasan scan terjadwal) --- */
+
+.wscanom-strip {
+	display: flex;
+	align-items: flex-start;
+	gap: 10px;
+	border-radius: 6px;
+	padding: 12px 14px;
+	margin: 0 0 20px;
+	font-size: 13px;
+}
+
+.wscanom-strip .dashicons {
+	flex-shrink: 0;
+	margin-top: 1px;
+}
+
+.wscanom-strip--info {
+	background: #f0f6fc;
+	color: #1d2327;
+}
+
+.wscanom-strip--info .dashicons {
+	color: #2271b1;
+}
+
+.wscanom-strip--warn {
+	background: #fcf3e0;
+	color: #1d2327;
+}
+
+.wscanom-strip--warn .dashicons {
+	color: #dba617;
+}
+
+/* --- Disclaimer --- */
+
+.wscanom-wrap .wscanom-disclaimer {
+	background: #fff8e5;
+	border-left: 4px solid #dba617;
+	border-radius: 0 6px 6px 0;
+	padding: 10px 14px;
+	font-size: 13px;
+	max-width: 100%;
+}
+
+/* --- Progress bar (scan) --- */
+
+.wscanom-progress {
+	margin: 12px 0;
+}
+
+.wscanom-progress-bar {
+	background: #e5e5e5;
+	border-radius: 999px;
+	height: 10px;
+	overflow: hidden;
+}
+
+.wscanom-progress-fill {
+	background: #2271b1;
+	height: 100%;
+	width: 0;
+	transition: width 0.2s ease;
+}
+
+#wscanom-progress-text {
+	font-size: 12px;
+	color: #50575e;
+	margin: 6px 0 0;
+}
+
+/* --- Badges / dot indicators --- */
+
+.wscanom-badge {
+	display: inline-block;
+	background: #f0f0f1;
+	color: #3c434a;
+	border-radius: 999px;
+	padding: 2px 9px;
+	font-size: 11px;
+	font-weight: 600;
+	vertical-align: middle;
+}
+
+.wscanom-badge-on {
+	background: #edfaef;
+	color: #00763c;
+}
+
+.wscanom-badge-off {
+	background: #f0f0f1;
+	color: #646970;
+}
+
+.wscanom-badge-manual {
+	background: #fdf0d5;
+	color: #996800;
+	text-transform: uppercase;
+	font-size: 10px;
+	letter-spacing: 0.04em;
+}
+
+.wscanom-dot {
+	display: inline-block;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	margin-right: 4px;
+}
+
+.wscanom-btn-danger {
+	color: #b32d2e;
+	border-color: #b32d2e !important;
+}
+
+.wscanom-emergency-buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+}
+
+.wscanom-emergency-buttons form {
+	margin: 0;
+}
+
+.wscanom-row-quarantined {
+	opacity: 0.55;
+}
+
+.wscanom-welcome-link,
+.wscanom-skip-link {
+	font-size: 13px;
+}
+
+/* --- Login CAPTCHA (wp-login.php) --- */
+
+.wscanom-captcha-row {
+	margin-bottom: 16px;
+}
+
+.wscanom-captcha-row label {
+	display: block;
+	margin-bottom: 4px;
+}
+
+/* --- Halaman sambutan pertama aktivasi --- */
+
+.wscanom-welcome-banner {
+	display: flex;
+	align-items: flex-start;
+	gap: 16px;
+	background: #fff;
+	border: 1px solid #c3c4c7;
+	border-left: 4px solid #2271b1;
+	border-radius: 8px;
+	padding: 22px 26px;
+	margin: 16px 0 22px;
+}
+
+.wscanom-welcome-banner .dashicons {
+	font-size: 40px;
+	width: 40px;
+	height: 40px;
+	color: #2271b1;
+	flex-shrink: 0;
+	margin-top: 4px;
+}
+
+.wscanom-welcome-banner h1 {
+	display: block;
+	margin: 0 0 6px;
+	padding: 0;
+	font-size: 22px;
+}
+
+.wscanom-welcome-banner p {
+	margin: 0;
+	color: #3c434a;
+	max-width: 640px;
+}
+
+.wscanom-welcome-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 16px;
+	margin: 0 0 22px;
+}
+
+.wscanom-welcome-card {
+	background: #fff;
+	border: 1px solid #dcdcde;
+	border-radius: 8px;
+	padding: 18px 20px;
+}
+
+.wscanom-welcome-card .dashicons {
+	font-size: 26px;
+	width: 26px;
+	height: 26px;
+	color: #2271b1;
+}
+
+.wscanom-welcome-card h3 {
+	margin: 10px 0 6px;
+	font-size: 14px;
+}
+
+.wscanom-welcome-card p {
+	margin: 0;
+	font-size: 13px;
+	color: #50575e;
+}
+
+/* --- Responsif: layar sempit --- */
+
+@media (max-width: 680px) {
+	.wscanom-overview {
+		flex-direction: column;
+		align-items: flex-start;
+	}
+
+	.wscanom-setting-row {
+		flex-direction: column;
+		gap: 8px;
+	}
+}
