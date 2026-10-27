@@ -141,8 +141,8 @@ Gunakan sebagai lapisan pemeriksaan tambahan, bukan satu-satunya alat keamanan s
 ### Dari source (untuk pengembangan)
 
 ```bash
-git clone https://github.com/treeleaf/wscanom.git
-cp -r wscanom/wscanom /path/ke/wordpress/wp-content/plugins/
+git clone https://github.com/treeleaf1901/Wscanom.git wscanom
+cp -r wscanom /path/ke/wordpress/wp-content/plugins/
 ```
 
 ## Pemakaian

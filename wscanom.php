@@ -1,13 +1,13 @@
 <?php
 /**
  * Plugin Name:       WScanom
- * Plugin URI:        https://github.com/treeleaf/wscanom
+ * Plugin URI:        https://github.com/treeleaf1901/Wscanom
  * Description:       Pemindai pola webshell/backdoor pada file .php di wp-content — scan bertahap (tidak membebani server), whitelist, riwayat scan, dan notifikasi email — plus proteksi aktif: brute-force login, CAPTCHA, verifikasi dua langkah (2FA), pengerasan XML-RPC, pengerasan privasi, log aktivitas, pemeriksaan kesehatan server, dan aksi darurat. Pemeriksaan tambahan, bukan pengganti scanner keamanan utama.
  * Version:           1.6.0
  * Requires at least: 5.8
  * Requires PHP:      7.4
  * Author:            Tree Leaf
- * Author URI:        https://github.com/treeleaf
+ * Author URI:        https://github.com/treeleaf1901
  * License:           GPL v2 or later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       wscanom

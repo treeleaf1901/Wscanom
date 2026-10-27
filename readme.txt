@@ -1,5 +1,5 @@
 === WScanom ===
-Contributors: treeleaf
+Contributors: treeleaf1901
 Tags: security, malware, scanner, backdoor, webshell
 Requires at least: 5.8
 Tested up to: 6.6
@@ -58,7 +58,7 @@ WScanom memindai semua file `.php` di dalam `wp-content` (tema, plugin, mu-plugi
 
 = Sumber kode =
 
-Kode sumber plugin ini juga tersedia di GitHub: https://github.com/treeleaf/wscanom
+Kode sumber plugin ini juga tersedia di GitHub: https://github.com/treeleaf1901/Wscanom
 
 == Installation ==
 
